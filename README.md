@@ -6,8 +6,6 @@
 
 ![preview](docs/preview.png)
 
-> 将预览图放在 `docs/preview.png`（仓库默认已保留 `docs/` 目录占位）。  
-
 ### 项目结构
 - `miniprogram/`：微信小程序端（本地记录 + 日历 + POI 搜索）
 - `server/`：后端代理（保护高德 Key，提供 `/api/poi/*`）
