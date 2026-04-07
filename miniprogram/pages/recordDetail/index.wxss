@@ -1,0 +1,58 @@
+.page {
+  padding-bottom: 40rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 800;
+}
+
+.sub {
+  margin-top: 6rpx;
+  font-size: 26rpx;
+}
+
+.section {
+  margin-top: 24rpx;
+}
+
+.section-title {
+  font-size: 26rpx;
+  font-weight: 650;
+  margin-bottom: 10rpx;
+}
+
+.note {
+  font-size: 28rpx;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 16rpx;
+}
+
+.btn {
+  flex: 1;
+  padding: 0 24rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 12rpx;
+  background: #f2f3f5;
+  color: #111;
+  font-size: 28rpx;
+}
+
+.danger {
+  background: #ffe9e9;
+  color: #c5221f;
+}
+
+.empty-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  margin-bottom: 8rpx;
+}
+

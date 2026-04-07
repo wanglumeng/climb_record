@@ -1,0 +1,100 @@
+.page {
+  padding-bottom: 40rpx;
+}
+
+.field {
+  margin-bottom: 24rpx;
+}
+
+.label {
+  font-size: 26rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10rpx;
+}
+
+.link {
+  padding: 0;
+  background: transparent;
+  color: #1e80ff;
+  font-size: 26rpx;
+  line-height: 1.2;
+}
+
+.recent {
+  margin-top: 14rpx;
+}
+
+.recent-title {
+  margin-bottom: 10rpx;
+  font-size: 24rpx;
+}
+
+.recent-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.chip {
+  padding: 10rpx 16rpx;
+  border-radius: 999rpx;
+  background: #f2f3f5;
+  font-size: 24rpx;
+  color: #111;
+  max-width: 100%;
+}
+
+.picker {
+  height: 84rpx;
+  line-height: 84rpx;
+  padding: 0 20rpx;
+  border-radius: 12rpx;
+  background: #f2f3f5;
+}
+
+.input {
+  height: 84rpx;
+  line-height: 84rpx;
+  padding: 0 20rpx;
+  border-radius: 12rpx;
+  background: #f2f3f5;
+}
+
+.textarea {
+  min-height: 220rpx;
+  padding: 16rpx 20rpx;
+  border-radius: 12rpx;
+  background: #f2f3f5;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hint {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  gap: 16rpx;
+}
+
+.btn {
+  flex: 1;
+  padding: 0 24rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 12rpx;
+  background: #f2f3f5;
+  color: #111;
+  font-size: 28rpx;
+}
+

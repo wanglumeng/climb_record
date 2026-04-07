@@ -1,0 +1,55 @@
+<view class="page">
+  <view class="card cal-header">
+    <view class="month-row">
+      <button class="nav-btn" bindtap="onPrevMonth">上月</button>
+      <view class="month-title">{{monthTitle}}</view>
+      <button class="nav-btn" bindtap="onNextMonth">下月</button>
+    </view>
+    <view class="week-row muted">
+      <view class="week-cell">一</view>
+      <view class="week-cell">二</view>
+      <view class="week-cell">三</view>
+      <view class="week-cell">四</view>
+      <view class="week-cell">五</view>
+      <view class="week-cell">六</view>
+      <view class="week-cell">日</view>
+    </view>
+  </view>
+
+  <view class="card grid">
+    <view
+      wx:for="{{grid}}"
+      wx:key="ymd"
+      class="day {{item.inMonth ? '' : 'out'}} {{dateSet[item.ymd] ? 'has' : ''}} {{item.ymd === selectedDate ? 'selected' : ''}}"
+      bindtap="onSelectDay"
+      data-ymd="{{item.ymd}}"
+    >
+      <view class="day-num">{{item.day}}</view>
+      <view class="dot" wx:if="{{dateSet[item.ymd]}}"></view>
+    </view>
+  </view>
+
+  <view class="card day-panel">
+    <view class="day-header">
+      <view class="day-title">{{selectedDate}}</view>
+      <button class="btn btn-primary" bindtap="onNewWithDate">新建</button>
+    </view>
+
+    <view wx:if="{{dayRecords.length === 0}}" class="muted empty">当天暂无记录</view>
+
+    <view wx:else class="day-list">
+      <view
+        wx:for="{{dayRecords}}"
+        wx:key="id"
+        class="item"
+        bindtap="onTapDetail"
+        data-id="{{item.id}}"
+      >
+        <view class="item-title">{{item.gym && item.gym.name ? item.gym.name : "未填写场馆"}}</view>
+        <view class="muted item-note" wx:if="{{item.note}}">{{item.note}}</view>
+        <view class="muted item-note" wx:else>（无心得）</view>
+      </view>
+    </view>
+  </view>
+</view>
+

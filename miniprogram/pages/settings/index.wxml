@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="card">
+    <view class="title">设置</view>
+    <view class="muted">本地记录数：{{recordCount}}</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">数据</view>
+    <button class="btn btn-primary" bindtap="onTapExportJson">导出 JSON（复制到剪贴板）</button>
+    <button class="btn danger" bindtap="onTapClearAll">清空本地数据</button>
+  </view>
+
+  <view class="card">
+    <view class="section-title">关于</view>
+    <view class="muted">定位与地图：仅用于场馆模糊搜索与（可选）附近排序，不做持续定位。</view>
+  </view>
+</view>
+

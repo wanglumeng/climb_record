@@ -1,0 +1,48 @@
+<view class="page">
+  <view class="card header">
+    <view class="title">攀岩记录</view>
+    <view class="actions">
+      <button class="btn btn-primary" bindtap="onTapNew">新建</button>
+      <button class="btn" bindtap="onTapFillSamples">填充示例数据</button>
+    </view>
+
+    <view class="filters">
+      <button class="chip" bindtap="onTapFilters">时间筛选</button>
+      <button class="chip" bindtap="onTapGymFilter">{{filterGymLabel}}</button>
+      <view class="muted count">共 {{filtered.length}} 条</view>
+    </view>
+  </view>
+
+  <view wx:if="{{records.length === 0}}" class="card empty">
+    <view class="empty-title">还没有记录</view>
+    <view class="muted empty-desc">先新建一条记录，或填充示例数据看看日历高亮效果。</view>
+    <button class="btn btn-primary" bindtap="onTapNew">新建第一条</button>
+  </view>
+
+  <view wx:else class="list">
+    <view wx:if="{{filtered.length === 0}}" class="card empty">
+      <view class="empty-title">没有匹配的记录</view>
+      <view class="muted empty-desc">试试调整筛选条件。</view>
+    </view>
+
+    <view
+      wx:for="{{filtered}}"
+      wx:key="id"
+      class="card item"
+      bindtap="onTapDetail"
+      data-id="{{item.id}}"
+    >
+      <view class="row">
+        <view class="item-title">{{item.gym && item.gym.name ? item.gym.name : "未填写场馆"}}</view>
+        <view class="item-date muted">{{item.date}}</view>
+      </view>
+      <view class="item-note muted" wx:if="{{item.note}}">
+        {{item.note}}
+      </view>
+      <view class="item-note muted" wx:else>
+        （无心得）
+      </view>
+    </view>
+  </view>
+</view>
+

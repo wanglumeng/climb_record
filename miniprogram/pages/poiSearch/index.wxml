@@ -1,0 +1,52 @@
+<view class="page">
+  <view class="card">
+    <view class="title">搜索攀岩馆</view>
+    <view class="row">
+      <input
+        class="input"
+        placeholder="输入关键词，如：攀岩 / 岩 / Climb"
+        value="{{keywords}}"
+        bindinput="onKeywordsInput"
+        confirm-type="search"
+      />
+      <button class="btn btn-primary" bindtap="onTapSearch" loading="{{loading}}">搜索</button>
+    </view>
+    <view class="muted hint">高德 POI 模糊搜索；若无结果可用下方“手动使用该名称”。</view>
+
+    <view wx:if="{{error}}" class="error">{{error}}</view>
+  </view>
+
+  <view class="card" wx:if="{{tips.length}}">
+    <view class="section-title">联想</view>
+    <view class="tip" wx:for="{{tips}}" wx:key="name">
+      <view class="tip-name">{{item.name}}</view>
+      <view class="muted tip-sub">{{item.district}}{{item.address ? (' · ' + item.address) : ''}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">结果</view>
+    <view wx:if="{{pois.length === 0 && !loading}}" class="muted empty">暂无结果</view>
+
+    <view
+      wx:for="{{pois}}"
+      wx:key="poiId"
+      class="poi"
+      bindtap="onTapPoi"
+      data-idx="{{index}}"
+    >
+      <view class="poi-name">{{item.name}}</view>
+      <view class="muted poi-sub">{{item.city}}{{item.address ? (' · ' + item.address) : ''}}</view>
+    </view>
+
+    <view class="muted loading" wx:if="{{loading}}">加载中...</view>
+    <view class="muted loading" wx:if="{{!loading && hasMore}}">上拉加载更多</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">手动兜底</view>
+    <view class="muted hint">如果 POI 搜索失败/无结果，可以直接用输入的名称保存为手动场馆。</view>
+    <button class="btn" bindtap="onTapManual">手动使用该名称</button>
+  </view>
+</view>
+

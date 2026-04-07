@@ -1,0 +1,26 @@
+<view class="page">
+  <view wx:if="{{!record}}" class="card empty">
+    <view class="empty-title">记录不存在</view>
+    <view class="muted">可能已被删除。</view>
+    <button class="btn btn-primary" bindtap="onBack">返回</button>
+  </view>
+
+  <view wx:else>
+    <view class="card">
+      <view class="title">{{record.gym && record.gym.name ? record.gym.name : "未填写场馆"}}</view>
+      <view class="sub muted">{{record.date}}</view>
+
+      <view class="section">
+        <view class="section-title">心得</view>
+        <view class="note" wx:if="{{record.note}}">{{record.note}}</view>
+        <view class="muted" wx:else>（无心得）</view>
+      </view>
+    </view>
+
+    <view class="card actions">
+      <button class="btn btn-primary" bindtap="onEdit">编辑</button>
+      <button class="btn danger" bindtap="onDelete">删除</button>
+    </view>
+  </view>
+</view>
+

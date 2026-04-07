@@ -1,0 +1,54 @@
+<view class="page">
+  <view class="card">
+    <view class="field">
+      <view class="label">日期</view>
+      <picker mode="date" value="{{date}}" bindchange="onDateChange">
+        <view class="picker">{{date}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="label-row">
+        <view class="label">攀岩馆</view>
+        <button class="link" bindtap="onTapChoosePoi">地图模糊搜索</button>
+      </view>
+
+      <input class="input" placeholder="也可手动输入场馆名" value="{{gymName}}" bindinput="onGymNameInput" />
+
+      <view wx:if="{{recentGyms.length}}" class="recent">
+        <view class="muted recent-title">最近选择</view>
+        <view class="recent-row">
+          <view
+            wx:for="{{recentGyms}}"
+            wx:key="{{index}}"
+            class="chip"
+            bindtap="onTapRecentGym"
+            data-idx="{{index}}"
+          >
+            {{item.name}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="label">心得</view>
+      <textarea
+        class="textarea"
+        placeholder="记录今天的训练内容、线路、感受…"
+        value="{{note}}"
+        bindinput="onNoteInput"
+        maxlength="500"
+      />
+      <view class="muted hint">{{note.length}} / 500</view>
+    </view>
+  </view>
+
+  <view class="card actions">
+    <button class="btn btn-primary" loading="{{saving}}" disabled="{{saving}}" bindtap="onSave">
+      保存
+    </button>
+    <button class="btn" bindtap="onCancel">取消</button>
+  </view>
+</view>
+

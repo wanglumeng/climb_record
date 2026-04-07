@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/records/index",
+    "pages/calendar/index",
+    "pages/settings/index",
+    "pages/recordForm/index",
+    "pages/recordDetail/index",
+    "pages/poiSearch/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "攀岩日记",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#f7f7f7"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#1e80ff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/records/index",
+        "text": "记录"
+      },
+      {
+        "pagePath": "pages/calendar/index",
+        "text": "日历"
+      },
+      {
+        "pagePath": "pages/settings/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
+
