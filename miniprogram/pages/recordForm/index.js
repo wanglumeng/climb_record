@@ -2,6 +2,26 @@ const { formatLocalDate } = require("../../utils/date");
 const { getRecordById, createRecord, updateRecord, normalizeManualGymName } = require("../../utils/records");
 const { loadRecentGyms } = require("../../utils/storage");
 
+function agentLog(hypothesisId, location, message, data) {
+  // #region agent log
+  wx.request({
+    url: "http://127.0.0.1:7931/ingest/162b5438-d37d-41c8-9088-6d5e337cd0b2",
+    method: "POST",
+    header: { "Content-Type": "application/json", "X-Debug-Session-Id": "39280e" },
+    data: {
+      sessionId: "39280e",
+      runId: "pre-fix",
+      hypothesisId,
+      location,
+      message,
+      data,
+      timestamp: Date.now()
+    },
+    fail() {}
+  });
+  // #endregion
+}
+
 function safeNavigateBackOrSwitchTab() {
   const pages = getCurrentPages();
   if (pages && pages.length > 1) {
@@ -27,6 +47,7 @@ Page({
     const presetDate = (options && options.date) || "";
 
     this.setData({ recentGyms: loadRecentGyms() });
+    agentLog("H6", "pages/recordForm/index.js:44", "recordForm onLoad", { id: (options && options.id) || "", presetDate: (options && options.date) || "" });
 
     if (id) {
       const r = getRecordById(id);
@@ -68,10 +89,12 @@ Page({
   },
 
   onTapChoosePoi() {
+    agentLog("H7", "pages/recordForm/index.js:88", "navigate to poiSearch", {});
     wx.navigateTo({
       url: "/pages/poiSearch/index",
       events: {
         poiSelected: (payload) => {
+          agentLog("H7", "pages/recordForm/index.js:94", "received poiSelected", { hasPayload: !!payload, hasGym: !!(payload && payload.gym), gymName: payload && payload.gym ? payload.gym.name : "" });
           if (!payload || !payload.gym) return;
           this.setData({ gym: payload.gym, gymName: payload.gym.name || "" });
         }

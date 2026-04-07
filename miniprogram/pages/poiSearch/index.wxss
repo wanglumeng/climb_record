@@ -56,6 +56,21 @@
   border-top: 1rpx solid #f0f0f0;
 }
 
+.poi {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border-radius: 12rpx;
+}
+
+.poi::after {
+  border: none;
+}
+
+.poi-hover {
+  background: #eef2f7;
+}
+
 .poi-name,
 .tip-name {
   font-size: 30rpx;

@@ -24,20 +24,22 @@
     </view>
   </view>
 
-  <view class="card">
+  <view class="card" bindtap="onResultContainerTap">
     <view class="section-title">结果</view>
     <view wx:if="{{pois.length === 0 && !loading}}" class="muted empty">暂无结果</view>
 
-    <view
+    <button
       wx:for="{{pois}}"
       wx:key="poiId"
       class="poi"
+      hover-class="poi-hover"
       bindtap="onTapPoi"
+      bindtouchstart="onPoiTouchStart"
       data-idx="{{index}}"
     >
       <view class="poi-name">{{item.name}}</view>
       <view class="muted poi-sub">{{item.city}}{{item.address ? (' · ' + item.address) : ''}}</view>
-    </view>
+    </button>
 
     <view class="muted loading" wx:if="{{loading}}">加载中...</view>
     <view class="muted loading" wx:if="{{!loading && hasMore}}">上拉加载更多</view>
